@@ -16,7 +16,7 @@ ADAPTER_NAME = Adapter.get_name()
 async def at(
     bot: Bot, event: Optional[MessageEvent] = None, user_id: Union[str, int] = 0
 ):
-    if event:
+    if event and not user_id:
         user_id = event.get_user_id()
     if not user_id:
         raise ValueError("user_id can not be empty")
