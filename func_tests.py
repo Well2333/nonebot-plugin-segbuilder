@@ -30,32 +30,32 @@ async def _(
         V12_MessageEvent,
         QG_MessageEvent,
     ],
+    at=Depends(SegmentBuilder.at),
 ):
     # sourcery skip: use-fstring-for-concatenation
     # at
-    at = await SegmentBuilder.at(bot, event)
+    # at = await SegmentBuilder.at()
     await t.send(at)
     # at_all
-    at_all = await SegmentBuilder.at(bot, user_id="all")
+    at_all = await SegmentBuilder.at(user_id="all")
     await t.send(at_all)
 
     # reply
-    reply = await SegmentBuilder.reply(bot, event)
+    reply = await SegmentBuilder.reply()
     msg = await t.send(reply + "123")
     # reply to msgid
     with contextlib.suppress(Exception):
         msgid = msg["message_id"]
-        reply_ = await SegmentBuilder.reply(bot, event, message_id=msgid)
+        reply_ = await SegmentBuilder.reply(message_id=msgid)
         await t.send(reply_ + "456")
 
     # image
     img = Path("docs/images/nbp_logo.png")
     # pathlike or bytes
-    image = await SegmentBuilder.image(bot, img)
+    image = await SegmentBuilder.image(image=img)
     await t.send(image)
     # url
     image = await SegmentBuilder.image(
-        bot,
-        "https://i.pixiv.re/img-original/img/2022/02/05/00/00/03/96003801_p0.jpg",
+        image="https://i.pixiv.re/img-original/img/2022/02/05/00/00/03/96003801_p0.jpg",
     )
     await t.send(image)

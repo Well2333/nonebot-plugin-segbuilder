@@ -51,7 +51,7 @@ t = on_command("setu")
 @t.handle()
 async def _(bot: Union[Mirai_Bot, V11_Bot, V12_Bot, QG_Bot]):
     img = Path("image.png")
-    image = await SegmentBuilder.image(bot, img)
+    image = await SegmentBuilder.image(image = img)
     await t.send(image)
 ```
 
