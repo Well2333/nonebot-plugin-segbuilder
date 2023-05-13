@@ -2,7 +2,7 @@
 
 [project]
 name = "nonebot-plugin-segbuilder"
-version = "0.1.1"
+version = "0.2.0"
 description = "为不同的适配器提供更通用且简易的消息段构建方式"
 authors = [
     {name = "Well404", email = "well_404@outlook.com"},

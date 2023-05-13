@@ -7,7 +7,7 @@ from nonebot.adapters.qqguild import Adapter as QQGuild_Adapter
 nonebot.init()
 
 driver = nonebot.get_driver()
-#driver.register_adapter(Mirai_Adapter)
+driver.register_adapter(Mirai_Adapter)
 driver.register_adapter(ONEBOT_V11Adapter)
 driver.register_adapter(ONEBOT_V12Adapter)
 driver.register_adapter(QQGuild_Adapter)
